@@ -5,7 +5,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from models import user_model
-from validators.auth_validator import user_create
+from schemas.auth_validator import *
 
 
 def register_user(user:user_create, db:Session):
@@ -37,8 +37,9 @@ def register_user(user:user_create, db:Session):
         )
 
 
-def login_user():
-    return
+def login_user(user_credentials:user_login, db:Session):
+    try:
+
 
 def generate_token():
     return
