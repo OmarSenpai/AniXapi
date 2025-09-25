@@ -7,7 +7,7 @@ An anime platform RESTful API
 - **MySQL**
 - **SQLalchemy**
 
-### Authentication
+### Security & Authentication
 - **JWT**
 - **hashlib + passlib**
 

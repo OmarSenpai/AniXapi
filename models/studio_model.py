@@ -10,3 +10,4 @@ class Studio(Base):
     uuid = Column(BINARY, primary_key = True)
     name = Column(String)
 
+
