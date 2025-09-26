@@ -4,8 +4,8 @@ from schemas.auth_validator import *
 from utils.db_connection import *
 
 router = APIRouter(
-    tags=["Auth"],
-    prefix="/auth"
+    tags=["Anime"],
+    prefix="/anime"
 )
 
 @router.post("/register")

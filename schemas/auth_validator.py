@@ -20,5 +20,3 @@ class forgot_password(BaseModel):
 class reset_password(BaseModel):
     email: EmailStr
 
-
-
