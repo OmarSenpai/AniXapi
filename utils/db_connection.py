@@ -14,4 +14,3 @@ def db_conn():
         yield db
     finally:
         db.close()
-

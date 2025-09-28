@@ -1,5 +1,9 @@
 import pydantic
-from pydantic import BaseModel, NonNegativeFloat
+from pydantic import BaseModel, NonNegativeFloat, Field
 
-class rating(BaseModel):
-    value: NonNegativeFloat
+
+class Rating(BaseModel):
+    anime: str
+    user: str
+    value: Field(NonNegativeFloat, ge=0, le=5)
+

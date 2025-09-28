@@ -8,8 +8,3 @@ router = APIRouter(
     prefix="/rating"
 )
 
-@router.post("/register")
-def rate_anime(user: user_create, db: Session = Depends(db_conn)):
-    return rate_anime(user, db)
-
-

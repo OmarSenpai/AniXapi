@@ -1,15 +1,17 @@
-import sqlalchemy
-from sqlalchemy import Column, Integer, String, BINARY, DateTime, Boolean, Enum, TIMESTAMP, ForeignKey
+from sqlalchemy import Column, String, BINARY, TIMESTAMP, ForeignKey, PrimaryKeyConstraint
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import event
-from argon2 import PasswordHasher
 
 Base = declarative_base()
 
 class Review(Base):
     __tablename__ = "reviews"
-    uuid = Column(BINARY, primary_key = True)
-    anime = Column(ForeignKey("anime.uuid", ondelete="CASCADE"), nullable=False)
-    user = Column(ForeignKey("users.uuid", ondelete="CASCADE"), nullable=False)
+    uuid = Column(BINARY, primary_key=True, nullable=False, unique=True)
+    anime = Column(ForeignKey("anime.uuid", ondelete="CASCADE", onupdate="CASCADE"), nullable=False)
+    user = Column(ForeignKey("users.uuid", ondelete="CASCADE", onupdate="CASCADE"), nullable=False)
     body = Column(String)
     published = Column(TIMESTAMP)
+
+    __table_args__ = (
+        PrimaryKeyConstraint ("user","anime")
+    )
+
