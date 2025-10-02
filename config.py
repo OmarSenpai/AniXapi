@@ -13,3 +13,8 @@ app = FastAPI(
     version=VERSION,
     debug=DEBUG_MODE
 )
+
+@app.get("/")
+async def root():
+    return {"welcome"}
+
